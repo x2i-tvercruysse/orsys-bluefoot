@@ -1,32 +1,21 @@
 pipeline {
-    
-    agent any
-    
+    agent none
     stages {
-    
-        stage('Build') {
-           steps {
-             sh 'echo "TODO"'
-           }
-        }
-        
-         stage('Test') {
-           steps {
-             parallel(
-                a: {
-                    echo "Tests A"
-                },
-                b: {
-                    echo "Tests B"
+        stage('Run Tests') {
+            parallel {
+                stage('Test On node1') {
+                    agent { label "test1" }
+                    steps {
+                        sh "run-tests.bat"
+                    }
                 }
-           }
+                stage('Test On node2') {
+                    agent { label "test2" }
+                    steps {
+                        sh "run-tests.sh"
+                    }
+                }
+            }
         }
-        
-         stage('Deploy') {
-           steps {
-             sh 'echo "TODO"'
-           }
-        }
-    
     }
 }
