@@ -19,7 +19,8 @@ pipeline {
                 b: {
                     echo "Tests B"
                 }
-           )
+             )
+           }
         }
         
          stage('Deploy') {
