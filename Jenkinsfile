@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
            steps {
              sh 'echo "TODO"'
+             writeFile file: 'archive.jar', text: ''
              archiveArtifacts '**/*.jar'
            }
         }
