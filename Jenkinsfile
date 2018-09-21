@@ -14,10 +14,10 @@ pipeline {
            steps {
              parallel(
                 a: {
-                    echo "Tests on Linux"
+                    echo "Tests A"
                 },
                 b: {
-                    echo "Tests on Windows"
+                    echo "Tests B"
                 }
            }
         }
