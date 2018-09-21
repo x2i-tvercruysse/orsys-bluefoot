@@ -12,7 +12,13 @@ pipeline {
         
          stage('Test') {
            steps {
-             sh 'echo "TODO"'
+             parallel(
+                a: {
+                    echo "Tests on Linux"
+                },
+                b: {
+                    echo "Tests on Windows"
+                }
            }
         }
         
