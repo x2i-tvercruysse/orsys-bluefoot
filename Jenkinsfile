@@ -1,6 +1,9 @@
 pipeline {
     
     agent any
+    tools {
+        maven 'MVN-FOR' 
+    }
     
     stages {
     
